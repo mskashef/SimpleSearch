@@ -1,0 +1,29 @@
+{
+  "name": "msk.information-retrieval.inverted-index",
+  "version": "1.0.0",
+  "description": "Information Retrieval project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mskashef/invertedIndex.git"
+  },
+  "keywords": [
+    "inverted",
+    "index",
+    "information",
+    "retrieval",
+    "node",
+    "js",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "MSKashef",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mskashef/invertedIndex/issues"
+  },
+  "homepage": "https://github.com/mskashef/invertedIndex#readme"
+}
