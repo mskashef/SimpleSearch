@@ -1,0 +1,5 @@
+horse cow donkey dog rabbit
+monkey zebra lion cheetah leopard
+alligator snake turtle hen rooster chicken
+elephant cat kitten horse sheep goat cow
+word
