@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/mskashef/invertedIndex/issues"
   },
-  "homepage": "https://github.com/mskashef/invertedIndex#readme"
+  "homepage": "https://github.com/mskashef/invertedIndex#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
 }

@@ -19,31 +19,34 @@ for (const name of docNames) {
   index.add(doc);
 }
 
-function getInput() {
-  readline.question('Enter your query: ', query => {
-    if (query === 'quit') {
-      readline.close();
-      return;
-    }
-    let q = new Query(query, index, store);
-    let res;
-    let error = false;
-    try {
-      res = q.run();
-    } catch {
-      error = true;
-    }
-    if (error) {
-      console.log('405 - Wrong Query');
-    } else if (!res || res.isEmpty()) {
-      console.log('404 - Not Found!');
-    } else {
-      for (const docId of [...res.getDocIds()]) {
-        console.log(store.get(docId).toString());
-      }
-    }
-    console.log("---------------------------------------");
-    getInput();
-  });
-}
-getInput();
+module.exports = { store, index };
+
+// function getInput() {
+//   readline.question('Enter your query: ', query => {
+//     if (query === 'quit') {
+//       readline.close();
+//       return;
+//     }
+//     let q = new Query(query, index, store);
+//     let res;
+//     let error = false;
+//     try {
+//       res = q.run();
+//     } catch {
+//       error = true;
+//     }
+//     if (error) {
+//       console.log('405 - Wrong Query');
+//     } else if (!res || res.isEmpty()) {
+//       console.log('404 - Not Found!');
+//     } else {
+//       console.log([...res.getDocIds()]);
+//       for (const docId of [...res.getDocIds()]) {
+//         console.log(store.get(docId).toString());
+//       }
+//     }
+//     console.log("---------------------------------------");
+//     getInput();
+//   });
+// }
+// getInput();

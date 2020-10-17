@@ -6,7 +6,7 @@ class Document {
   constructor(name, body) {
     this.name = name;
     this.body = body;
-    this.docId = Document.#lastId++;
+    this.docId = Document.#lastId++ + '';
   }
   getDocId() {
     return this.docId;

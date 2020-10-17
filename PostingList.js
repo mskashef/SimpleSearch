@@ -39,11 +39,32 @@ class PostingList {
   }
 
   or(other) {
-    const currentDocIds = this.getDocIds();
-    return new PostingList(
-      this.#universe,
-      [...currentDocIds, ...other.getDocIds()]
-    );
+    const currentDocIds = [...this.getDocIds()];
+    const otherDocIds = [...other.getDocIds()];
+    const res = new PostingList(this.#universe);
+    let i = 0, j = 0;
+    while (i < currentDocIds.length && j < otherDocIds.length) {
+      if (currentDocIds[i] === otherDocIds[j]) {
+        res.add(currentDocIds[i]);
+        [i, j] = [i + 1, j + 1]
+      } else if (currentDocIds[i] < otherDocIds[j]) {
+        res.add(currentDocIds[i++]);
+      } else {
+        res.add(otherDocIds[j++])
+      }
+    }
+    while (i < currentDocIds.length)
+      res.add(currentDocIds[i++])
+
+    while (j < otherDocIds.length)
+      res.add(otherDocIds[j++])
+
+    return res;
+
+    // return new PostingList(
+    //   this.#universe,
+    //   [...other.getDocIds(), ...currentDocIds].sort(),
+    // );
   }
 
   not() {
