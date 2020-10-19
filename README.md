@@ -1,4 +1,4 @@
-# InvertedIndex
+# Simple Search
 
 ## Installation
 
