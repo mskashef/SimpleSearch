@@ -26,6 +26,40 @@ To start the project, follow these steps
 
 ## Code Descriptions
 
+### Main parts of the project
+
+Cause this project is written with web technologies, it has a fron-end and a back-end part and also it has a core written with js to calculate the user input queries.
+
+- Front-end:
+
+  - Technologies:
+    `HTML`, `CSS`, `JavaScript`, `Fetch API`
+  - Folder Structure:
+    Front-end source code is inside of the `front-end` Directory in the root directory.
+  - Index File: `root/front-end/index.html`
+
+- Back-end Technologies:
+
+  - Technologies:
+    `Node.js`, `Express.js`
+  - Folder Structure:
+    Back-end source is inside of the root directory and it's a single javascript file.
+  - Index File: `root/server.js`
+
+- Calculation Core:
+
+  - Technologies: `Node.js`
+  - Folder Structure:
+    All core code is inside of the root directory and every `.js` file except `server.js` in the root directory is a part of calculation core.
+  - Index File: `root/app.js`
+
+- Other Folders:
+
+  - `root/files/disk`: is where the `Invertedindex` saves it's data (`data.csv`)
+  - `root/files/store`: is where the source Documents are stored.
+
+### Main Classes
+
 This project is made of 6 Main Classes:
 
 1. Document
