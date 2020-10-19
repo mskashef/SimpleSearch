@@ -9,13 +9,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 const { store, index } = require('./app');
-// app.get('/products', (req, res) => {
-//   setTimeout(() => {
-//     // res.send(products);
-//   }, 500);
-// });
-
-
 
 app.post('/search', (req, res) => {
   const { query } = req.body;
