@@ -54,13 +54,12 @@ Cause this project is written with web technologies, it has a fron-end and a bac
   - Index File: `root/app.js`
 
 - Other Folders:
-
   - `root/files/disk`: is where the `Invertedindex` saves it's data (`data.csv`)
   - `root/files/store`: is where the source Documents are stored.
 
 ### Main Classes
 
-This project is made of 6 Main Classes:
+The Calculation Core is made of 7 Main Classes:
 
 1. Document
 
@@ -99,4 +98,8 @@ This project is made of 6 Main Classes:
 
 6. Query
 
-   This is a class which can get a query string as it's constructor parameter and it can run the query and calculate it's output according to given documents and returns an object which is instace of `PostingList` class .
+   This is a class which can get a query string as it's constructor parameter and it can run the query and calculate it's output according to given documents and returns an object which is instace of `PostingList` class.
+
+7. Token
+
+   This is a data structure to store a token's details and calculate it's some other details like `priority` and etc.
