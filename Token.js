@@ -13,7 +13,7 @@ class Token {
     return ['and', 'or'].includes(this.value) ? 0 : 1;
   }
   toString() {
-    return `Token { value: ${this.#value}}`;
+    return `${this.#value}`;
   }
 }
 module.exports = Token;

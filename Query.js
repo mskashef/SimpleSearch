@@ -20,10 +20,10 @@ class Query {
     let s = [], result = [], tokens = this.#tokenize();
     for (const token of tokens) {
       if (token.type === 'operator') {
-        if (s.length > 0 && (token.priority >= s[s.length - 1].priority || token.value === 'not')) {
+        if (s.length > 0 && (token.priority > s[s.length - 1].priority || token.value === 'not')) {
           s.push(token);
         } else {
-          while (s.length > 0 && token.priority < s[s.length - 1].priority)
+          while (s.length > 0 && token.priority <= s[s.length - 1].priority)
             result.push(s.pop());
           s.push(token);
         }
@@ -34,6 +34,7 @@ class Query {
     while (s.length > 0) {
       result.push(s.pop());
     }
+    console.log(result + '');
     return result;
   }
 
