@@ -103,3 +103,14 @@ The Calculation Core is made of 7 Main Classes:
 7. Token
 
    This is a data structure to store a token's details and calculate it's some other details like `priority` and etc.
+
+### How it works
+
+1. After Starting the project and opening the `index.html` file, user can input a boolean query.
+
+   ex: apple and not apple or chicken
+
+2. After pressing the `search` button, the query will be sent to the back-end.
+3. In the backend side, The documents are loaded previously and saved on the disk. then query is splitted to tokens by `/\s+/` regex.
+
+   And then it's converted to a postfix sentence and after calculating the result, it will be sent to front-ent and the user can see the query result.
