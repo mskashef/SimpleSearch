@@ -77,6 +77,7 @@ class Query {
         });
       }
     }
+    if (s.length > 1) throw new Error("Wrong Query");
     return s.pop().postingList;
   }
 }
