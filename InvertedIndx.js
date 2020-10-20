@@ -32,7 +32,10 @@ class InvertedIndex {
 
   add(doc) {
     let tokens = doc.getBody().split(/\s+/);
-    let distinctTokens = new Set(tokens);
+    let distinctTokens = new Set();
+    for (const token of tokens) {
+      distinctTokens.add(token.toLowerCase());
+    }
     let table = this.readFromDisk();
     for (const token of distinctTokens) {
       if (!table.has(token))
