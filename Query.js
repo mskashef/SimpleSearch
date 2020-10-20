@@ -34,7 +34,6 @@ class Query {
     while (s.length > 0) {
       result.push(s.pop());
     }
-    console.log(result + '');
     return result;
   }
 
