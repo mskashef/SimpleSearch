@@ -13,12 +13,12 @@ document.getElementById('searchButton').addEventListener('click', function () {
       headers: {
         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
       },
-      body: `query=${document.getElementById('queryInput').value}`
+      body: `query=${document.getElementById('queryInput').value.trim()}`
     })
     .then(res => res.json())
     .then(result => {
       if (result.success) {
-        document.getElementById("searchResult").innerHTML = result.docs.map(renderItem).join('');
+        document.getElementById("searchResult").innerHTML = result.docs.length > 0 ? result.docs.map(renderItem).join('') : `<div id="notFound"><h3>404&nbsp;-&nbsp;</h3><p>"${document.getElementById('queryInput').value.trim()}" did not match any token!</p></div>`;
       } else {
         document.getElementById("searchResult").innerHTML = `<div id="error">${result.error}</div>`;
       }

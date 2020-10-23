@@ -9,11 +9,14 @@ class CSV {
     let res = '', checkStructure = this.#checkIfAllInSameStructure(data);
     if (checkStructure.ok) {
       res += checkStructure.keys + '\n';
-      for (const row of data) {
+      outer: for (const row of data) {
         let cells = [];
         for (let i = 0; i < checkStructure.keys.length; i++) {
           const key = checkStructure.keys[i];
-          cells.push(this.#encodeCell(row[key]));
+          let cell = row[key];
+          if (!cell || cell === null || cell === undefined || cell.length === 0)
+            continue outer;
+          cells.push(this.#encodeCell(cell));
         }
         res += `${cells}\n`;
       }
@@ -31,7 +34,7 @@ class CSV {
   */
   static decode(data) {
     let rows = data.split(/\n/), keys = [], isFirst = true, res = [];
-    for (const row of rows) {
+    outer: for (const row of rows) {
       let cells = row.split(',');
       if (isFirst) {
         keys = cells.map(cell => cell.trim());
@@ -40,7 +43,7 @@ class CSV {
       }
       let obj = {};
       for (let i = 0; i < cells.length; i++) {
-        if (!cells[i] || cells[i].length === 0) continue;
+        if (!cells[i] || cells[i].length === 0) continue outer;
         obj[keys[i]] = this.#decodeCell(cells[i].trim());
       }
       if (Object.keys(obj).length > 0)
@@ -67,7 +70,7 @@ class CSV {
   }
 
   static #decodeCell = (cell) => {
-    if (!cell || cell === '' || cell.length === 0)
+    if (!cell || cell === '' || cell == null || cell == undefined || cell.length === 0)
       return cell;
     if (cell[0] === '[' && cell[cell.length - 1] === ']')
       return cell.slice(1, cell.length - 1).split(' ');

@@ -174,3 +174,19 @@ footer {
   background-color: #ff000011;
   user-select: none;
 }
+#notFound {
+  border: 2px solid #44444455;
+  width: 550px;
+  border-radius: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  color: #444444;
+  background-color: #44444411;
+  user-select: none;
+}
+#notFound > p {
+  flex: 1;
+}

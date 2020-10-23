@@ -8,7 +8,7 @@ const readline = require('readline').createInterface({
   output: process.stdout
 });
 
-const docNames = ['fruits', 'animals', 'food'];
+const docNames = ['alice', 'frankenstein', 'beowulf', 'pride', 'yellow'];
 const store = new DocumentStore();
 const index = new InvertedIndex('files/disk/data.csv', store);
 
@@ -18,7 +18,6 @@ for (const name of docNames) {
   store.add(doc);
   index.add(doc);
 }
-
 module.exports = { store, index };
 
 // function getInput() {

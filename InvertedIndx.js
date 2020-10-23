@@ -15,7 +15,7 @@ class InvertedIndex {
     let res = [];
     for (const key of table.keys()) {
       res.push({
-        word: key,
+        token: key,
         docIds: [...table.get(key).getDocIds()]
       })
     }
@@ -26,18 +26,25 @@ class InvertedIndex {
     let csv = fs.readFileSync(this.#path, { encoding: 'utf8' });
     let readData = CSV.decode(csv), res = new Map();
     for (const item of readData)
-      res.set(item.word, new PostingList(this.#store, item.docIds));
+      res.set(item.token, new PostingList(this.#store, item.docIds));
     return res;
   }
 
+  #getBlackListRegex = () => new RegExp(`//(${['and', 'or', 'not'].join('|')})`);
+
+  #isBadToken = token => (!token || token === undefined || token.length === 0 || token === null || token.trim() === "" || !/(\w+)/.test(token) || this.#getBlackListRegex().test(token));
+
+  #tokenize = text => text.split(/(\s|\W)+/);
+
   add(doc) {
-    let tokens = doc.getBody().split(/\s+/);
+    let tokens = this.#tokenize(doc.getBody());
     let distinctTokens = new Set();
     for (const token of tokens) {
-      distinctTokens.add(token.toLowerCase());
+      distinctTokens.add(token.toLowerCase().trim());
     }
     let table = this.readFromDisk();
     for (const token of distinctTokens) {
+      if (this.#isBadToken(token)) continue;
       if (!table.has(token))
         table.set(token, new PostingList(this.#store));
       table.get(token).add(doc.getDocId());

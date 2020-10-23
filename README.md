@@ -111,6 +111,6 @@ The Calculation Core is made of 7 Main Classes:
    ex: apple and not apple or chicken
 
 2. After pressing the `search` button, the query will be sent to the back-end.
-3. In the backend side, The documents are loaded previously and saved on the disk. then query is splitted to tokens by `/\s+/` regex.
+3. In the backend side, The documents are loaded previously and saved on the disk. then query is splitted to tokens by `/(\s|\W)+/` regex(just the words remain).
 
    And then it's converted to a postfix sentence and after calculating the result, it will be sent to front-ent and the user can see the query result.
