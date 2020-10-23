@@ -2,14 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const Query = require('./Query');
+const Query = require('./core/Query');
 
 // app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const { store, index } = require('./app');
+const { store, index } = require('./core/app');
 const sendResponse = (res, status, data) => {
   setTimeout(() => {
     res

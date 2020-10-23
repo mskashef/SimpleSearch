@@ -35,7 +35,7 @@ Cause this project is written with web technologies, it has a fron-end and a bac
   - Technologies:
     `HTML`, `CSS`, `JavaScript`, `Fetch API`
   - Folder Structure:
-    Front-end source code is inside of the `front-end` Directory in the root directory.
+    Front-end source code is inside of the `front-end` directory in the root directory.
   - Index File: `root/front-end/index.html`
 
 - Back-end Technologies:
@@ -50,8 +50,8 @@ Cause this project is written with web technologies, it has a fron-end and a bac
 
   - Technologies: `Node.js`
   - Folder Structure:
-    All core code is inside of the root directory and every `.js` file except `server.js` in the root directory is a part of calculation core.
-  - Index File: `root/app.js`
+    Calculation Core source code is inside of the `core` directory in the root directory.
+  - Index File: `root/core/app.js`
 
 - Other Folders:
   - `root/files/disk`: is where the `Invertedindex` saves it's data (`data.csv`)

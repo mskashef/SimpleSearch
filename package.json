@@ -2,9 +2,9 @@
   "name": "msk.information-retrieval.inverted-index",
   "version": "1.0.0",
   "description": "Information Retrieval project",
-  "main": "app.js",
+  "main": "core/app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node core/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
