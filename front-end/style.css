@@ -103,9 +103,15 @@ main {
   height: 180px;
   padding: 10px;
   width: 180px;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transform: scale(1);
+  transition: all 0.2s;
+}
+.itemCard:hover {
+  transform: scale(1.05);
 }
 .itemCard__id {
   display: block;
@@ -189,4 +195,15 @@ footer {
 }
 #notFound > p {
   flex: 1;
+}
+#count {
+  width: 550px;
+  border-radius: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  color: #444444;
+  user-select: none;
 }

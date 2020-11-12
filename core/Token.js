@@ -1,3 +1,4 @@
+const unicode = require('./Unicoder');
 class Token {
   #value
   constructor(value) {
@@ -5,6 +6,9 @@ class Token {
   }
   get value() {
     return this.#value;
+  }
+  get unicodeValue() {
+    return unicode(this.#value);
   }
   get type() {
     return ['and', 'or', 'not'].includes(this.value) ? 'operator' : 'word';

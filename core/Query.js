@@ -1,4 +1,5 @@
 const Token = require('./Token');
+const { tokenize } = require('./Tokenizer');
 class Query {
   #query
   #index
@@ -9,11 +10,19 @@ class Query {
     this.#store = store;
   }
 
+  #convertNotToAndNot = (query) => {
+    let fixed = [];
+    for (const token of query) {
+      if (token === 'not' && fixed.length > 0 && fixed[fixed.length - 1] !== 'and' && fixed[fixed.length - 1] !== 'or')
+        fixed.push('and');
+      fixed.push(token);
+    }
+    return fixed;
+  }
+
   #tokenize = () => {
-    return this
-      .#query
-      .split(/\s+/)
-      .map(token => new Token(token));
+    const tokenized = this.#convertNotToAndNot(tokenize(this.#query));
+    return tokenized.map(token => new Token(token));
   }
 
   #getPostfixQuery = () => {

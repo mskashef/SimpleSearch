@@ -60,11 +60,6 @@ class PostingList {
       res.add(otherDocIds[j++])
 
     return res;
-
-    // return new PostingList(
-    //   this.#universe,
-    //   [...other.getDocIds(), ...currentDocIds].sort(),
-    // );
   }
 
   not() {

@@ -2,10 +2,12 @@ class Document {
   static #lastId = 1;
   name
   body
+  url
 
-  constructor(name, body) {
+  constructor(name, body, url) {
     this.name = name;
     this.body = body;
+    this.url = url;
     this.docId = Document.#lastId++ + '';
   }
   getDocId() {
@@ -16,6 +18,9 @@ class Document {
   }
   getBody() {
     return this.body;
+  }
+  getUrl() {
+    return this.url
   }
   toString() {
     return `Document { docId=${this.docId}, name='${this.name}' }`;

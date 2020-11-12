@@ -63,7 +63,7 @@ The Calculation Core is made of 7 Main Classes:
 
 1. Document
 
-   It's a data structure to store some data from a document such as: `name`, `name`, `body`.
+   It's a data structure to store some data from a document such as: `name`, `name`, `body`, `url`.
 
 2. DocumentStore:
 
@@ -104,13 +104,29 @@ The Calculation Core is made of 7 Main Classes:
 
    This is a data structure to store a token's details and calculate it's some other details like `priority` and etc.
 
+8. OnRamInvertedIndex
+
+   This is a copy of InvertedIndexClass but it's fully on the RAM for higher speed (not good for big datas).
+
+9. Tokenizer
+
+   This class is for normalizing and tokenizing the documents and queries. It contains several private methods and it has just one `public static` method which is `tokenize`.
+   This method first normalizes the text and then tokenizes and returns the result.
+
+10. Unicoder
+    This file contains a method to unicode the given string (It's not used in this project).
+
 ### How it works
 
 1. After Starting the project and opening the `index.html` file, user can input a boolean query.
 
-   ex: apple and not apple or chicken
+   ex1: apple and not hen or chicken
+   ex2: سیب or شیر
+   Also in this version `a not b` is equivalent to `a and not b`
 
 2. After pressing the `search` button, the query will be sent to the back-end.
-3. In the backend side, The documents are loaded previously and saved on the disk. then query is splitted to tokens by `/(\s|\W)+/` regex(just the words remain).
+3. In the backend side, The documents are loaded previously and saved on the disk. then query is splitted to tokens by a function called `tokenize` in the `Tokenize.js` (just the words remain).
 
    And then it's converted to a postfix sentence and after calculating the result, it will be sent to front-ent and the user can see the query result.
+
+In this version I Also added the support for persian language.
