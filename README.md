@@ -121,7 +121,9 @@ The Calculation Core is made of 7 Main Classes:
 1. After Starting the project and opening the `index.html` file, user can input a boolean query.
 
    ex1: apple and not hen or chicken
+   
    ex2: سیب or شیر
+   
    Also in this version `a not b` is equivalent to `a and not b`
 
 2. After pressing the `search` button, the query will be sent to the back-end.
