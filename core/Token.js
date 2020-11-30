@@ -11,10 +11,10 @@ class Token {
     return unicode(this.#value);
   }
   get type() {
-    return ['and', 'or', 'not'].includes(this.value) ? 'operator' : 'word';
+    return ['and', 'و'].includes(this.value) || this.value[0] === '\\' ? 'operator' : 'word';
   }
   get priority() {
-    return ['and', 'or'].includes(this.value) ? 0 : 1;
+    return ['and', 'و'].includes(this.value) ? 0 : 1;
   }
   toString() {
     return `${this.#value}`;

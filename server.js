@@ -35,13 +35,13 @@ app.post('/search', (req, res) => {
   }
   if (error)
     sendResponse(res, 200, { success: false, error: 'Wrong Query!' });
-  else if (!queryResult || queryResult.isEmpty())
+  else if (!queryResult || queryResult.length === 0)
     sendResponse(res, 200, { success: true, docs: [] });
   else {
-    let response = [];
-    for (const docId of [...queryResult.getDocIds()])
-      response.push(store.get(docId));
-    sendResponse(res, 200, { success: true, docs: response });
+    let response = new Set();
+    for (const docId of [...queryResult.map(posList => posList.docId)])
+      response.add(store.get(docId));
+    sendResponse(res, 200, { success: true, docs: [...response] });
   }
 });
 
